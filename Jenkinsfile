@@ -16,9 +16,14 @@ pipeline {
                 publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/target/site', reportFiles: 'surefire-index.html', reportName: 'HTML Report', reportTitles: ''])
             }
         }
+        stage('Build'){
+            steps {
+                sh "mvn build -DskipTests=true"
+            }
+        }
         stage('Packaging'){
             steps {
-                sh "mvn package -DskipTests=true"
+                sh "mvn package"
             }
         }
         stage('Deploy') {
