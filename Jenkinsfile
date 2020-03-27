@@ -1,9 +1,9 @@
 pipeline {
     agent  
-    label maven
+    label 'maven'
     tools {
         jdk 'openjdk8'
-        maven 'maven3.6.3'
+        maven '363'
     }
         
     stages {
