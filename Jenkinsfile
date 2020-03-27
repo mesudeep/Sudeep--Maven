@@ -22,8 +22,6 @@ pipeline {
         failure {
             echo "Failed"
         }
-        always {
-            deleteDir()
-        }
+        
     }
 }
