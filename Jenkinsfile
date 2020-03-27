@@ -7,7 +7,7 @@ pipeline {
         maven '363'
     } 
     options {
-         timeout(time: 3, unit: 'SECONDS')
+         timeout(time: 1800, unit: 'SECONDS')
     }
     stages {
         stage ('Test') {
@@ -23,6 +23,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                input message: 'DEPLOY?', YES: 'Approve'
                 sshagent(['sudeeptarget']) {
                   sh "scp  -o StrictHostKeyChecking=no target/my-app-1-RELEASE.jar ec2-user@172.31.42.156:/home/ec2-user"
 }
