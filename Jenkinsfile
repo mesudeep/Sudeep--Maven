@@ -7,7 +7,7 @@ pipeline {
         maven '363'
     } 
     options {
-        timeout(1)
+         timeout(time: 3, unit: 'SECONDS')
     }
     stages {
         stage ('Test') {
