@@ -7,7 +7,7 @@ pipeline {
         jdk 'openjdk8'
 }
     stages {
-        stege ('Build'){
+        stage ('Build') {
             steps {
                 sh "mvn clean compile"
             }
