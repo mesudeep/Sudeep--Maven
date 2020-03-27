@@ -21,7 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent(['sudeeptarget']) {
-                  sh "scp target/my-app-1-RELEASE.jar ec2-user@172-31-42-156:/home/ec2-user"
+                  sh "scp  -o StrictHostKeyChecking=no target/my-app-1-RELEASE.jar ec2-user@172-31-42-156:/home/ec2-user"
 }
 
             }
