@@ -1,6 +1,6 @@
 pipeline {
     agent{
-        label maven
+        label none
     }
     tools {
         jdk 'openjdk8'
