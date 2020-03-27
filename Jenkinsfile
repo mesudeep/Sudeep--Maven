@@ -10,20 +10,20 @@ pipeline {
          timeout(time: 1800, unit: 'SECONDS')
     }
     stages {
+        stage('Build'){
+            steps {
+                sh "mvn build "
+            }
+        }
         stage ('Test') {
             steps {
                 sh "mvn clean test surefire-report:report-only"
                 publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/target/site', reportFiles: 'surefire-index.html', reportName: 'HTML Report', reportTitles: ''])
             }
         }
-        stage('Build'){
-            steps {
-                sh "mvn build -DskipTests=true"
-            }
-        }
         stage('Packaging'){
             steps {
-                sh "mvn package"
+                sh "mvn package -DskipTests=true"
             }
         }
         stage('Deploy') {
