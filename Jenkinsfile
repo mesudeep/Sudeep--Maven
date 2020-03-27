@@ -4,7 +4,7 @@ pipeline {
     }
     tools {
         jdk 'openjdk8'
-        maven 'Maven'
+        maven 'maven'
         
 }
     stages {
