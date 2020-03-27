@@ -1,12 +1,11 @@
 pipeline {
-    agent{
-        label Maven
-    }
+    agent {
+        label 'maven'
+    }  
     tools {
         jdk 'openjdk8'
-        maven 'Maven'
-        
-}
+        maven '363'
+    } 
     stages {
         stage ('Build') {
             steps {
@@ -14,16 +13,5 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            echo "Success"
-            
-        }
-        failure {
-            echo "Failed"
-        }
-        always {
-            deleteDir()
-        }
-    }
+    
 }
