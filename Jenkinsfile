@@ -1,16 +1,17 @@
 pipeline {
-    agent  maven
+    agent  
+    label maven
     tools {
         jdk 'openjdk8'
         maven 'maven3.6.3'
+    }
         
     stages {
-        stage ('Build') {
+        stage ('Test') {
             steps {
                 sh "mvn clean test"
             }
         }
     }
     
-}
 }
