@@ -7,9 +7,14 @@ pipeline {
         maven '363'
     } 
     stages {
-        stage ('Build') {
+        stage ('Test') {
             steps {
-                sh "mvn clean compile"
+                sh "mvn clean test"
+            }
+        }
+        stage('Packaging'){
+            steps {
+                sh "mvn package"
             }
         }
     }

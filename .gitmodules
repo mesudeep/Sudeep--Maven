@@ -1,0 +1,3 @@
+[submodule "sudeep"]
+	path = sudeep
+	url = https://github.com/mesudeep/Sudeep.git
