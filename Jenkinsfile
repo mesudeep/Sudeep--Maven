@@ -6,6 +6,9 @@ pipeline {
         jdk 'openjdk8'
         maven '363'
     } 
+    options {
+        timeout(1)
+    }
     stages {
         stage ('Test') {
             steps {
